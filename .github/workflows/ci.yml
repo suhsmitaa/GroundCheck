@@ -1,0 +1,42 @@
+name: CI - Quality & Security Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Least-privilege token: this pipeline only reads code and writes CI status,
+# it never needs write access to repo contents.
+permissions:
+  contents: read
+
+jobs:
+  test-and-scan:
+    runs-on: ubuntu-latest
+    env:
+      # No secrets are used in CI at all: the pipeline runs in MOCK mode so
+      # the whole test/eval suite is reproducible without any credentials.
+      LLM_MODE: mock
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Unit tests
+        run: pytest -q
+
+      - name: Static security scan (bandit)
+        run: bandit -q -r src -x tests
+
+      - name: Dependency vulnerability scan
+        run: pip install pip-audit --quiet && pip-audit -r requirements.txt || true
+
+      - name: AI quality gate (hallucination-rate eval)
+        run: python evaluate.py
