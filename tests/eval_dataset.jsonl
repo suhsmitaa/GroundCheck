@@ -1,0 +1,4 @@
+{"query": "What is the shipping policy?", "expect_pass": true}
+{"query": "What is the refund policy?", "expect_pass": false}
+{"query": "What is the warranty policy?", "expect_pass": false}
+{"query": "What are the support hours?", "expect_pass": true}
