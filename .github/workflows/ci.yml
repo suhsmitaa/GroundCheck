@@ -1,4 +1,4 @@
-name: CI - Quality & Security Gate
+name: groundcheck CI - Quality & Security Gate
 
 on:
   push:
