@@ -2,8 +2,7 @@
 
 An **agentic workflow that reduces
 hallucinations** through evaluation, testing, observability and a secured
-CI pipeline. Built to be read end-to-end in a few minutes, not to be a
-production system.
+CI pipeline.
 
 ## What it demonstrates
 
