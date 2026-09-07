@@ -87,9 +87,14 @@ an LLM provider.
 
 
 Redo
+Step 1
 1. one question on a toipic(selected by system or app) which user will input (for app source of truth is wikipedia)
 2. get the answer from LLM claude, answer in 10 words
 3. get the answer from LLM GPT
 4. get the actual answer from wikipeida 
 5. Compare actual answer with LLM's answer and provide hallucianation score to LLMs. 10%
-6. show LLM autonomous decision making in steps to reduce halluciation. 5%
+
+Step 2
+7. show LLM autonomous decision making in steps to reduce halluciation. 5%
+
+Show flow chart in readme
