@@ -84,3 +84,12 @@ reproduce a hallucination on demand.
 
 It runs entirely in mock mode, so CI needs zero secrets or network calls to
 an LLM provider.
+
+
+Redo
+1. one question on a toipic(selected by system or app) which user will input (for app source of truth is wikipedia)
+2. get the answer from LLM claude, answer in 10 words
+3. get the answer from LLM GPT
+4. get the actual answer from wikipeida 
+5. Compare actual answer with LLM's answer and provide hallucianation score to LLMs. 10%
+6. show LLM autonomous decision making in steps to reduce halluciation. 5%
